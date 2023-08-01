@@ -1,0 +1,68 @@
+#scientific calculator
+
+import math
+
+def add(x, y):
+    return x + y
+
+def subtract(x, y):
+    return x - y
+
+def multiply(x, y):
+    return x * y
+
+def divide(x, y):
+    if y == 0:
+        return "Cannot divide by zero"
+    return x / y
+
+def square_root(x):
+    if x < 0:
+        return "Square root of negative number is not defined"
+    return math.sqrt(x)
+
+def power(x, y):
+    return x ** y
+
+def scientific_calculator():
+    print("Scientific Calculator")
+    print("Available operations:")
+    print("1. Addition (+)")
+    print("2. Subtraction (-)")
+    print("3. Multiplication (*)")
+    print("4. Division (/)")
+    print("5. Square Root (√)")
+    print("6. Exponentiation (^)")
+    print("Enter 'q' to quit")
+
+    while True:
+        choice = input("Enter operation: ")
+
+        if choice.lower() == 'q':
+            break
+
+        if choice in ('1', '2', '3', '4', '5', '6'):
+            num1 = float(input("Enter the first number: "))
+
+            if choice != '5':
+                num2 = float(input("Enter the second number: "))
+
+            if choice == '1':
+                result = add(num1, num2)
+            elif choice == '2':
+                result = subtract(num1, num2)
+            elif choice == '3':
+                result = multiply(num1, num2)
+            elif choice == '4':
+                result = divide(num1, num2)
+            elif choice == '5':
+                result = square_root(num1)
+            elif choice == '6':
+                result = power(num1, num2)
+
+            print("Result:", result)
+        else:
+            print("Invalid operation. Please try again.")
+
+if __name__ == "__main__":
+    scientific_calculator()
